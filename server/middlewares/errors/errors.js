@@ -1,6 +1,5 @@
-const chalk = require("chalk");
-
 require("dotenv").cofing();
+const chalk = require("chalk");
 const debug = require("debug")("series:middlewares:errors");
 
 const notFoundError = (req, res) => {
