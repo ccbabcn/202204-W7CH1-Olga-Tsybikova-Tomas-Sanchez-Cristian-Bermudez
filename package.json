@@ -6,7 +6,9 @@
   "scripts": {
     "test": "jest --watchAll",
     "test-coverage": "jest--coverage --watchAll=false",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "start": "node .",
+    "start-dev": "nodemon . -q"
   },
   "author": "",
   "license": "ISC",
