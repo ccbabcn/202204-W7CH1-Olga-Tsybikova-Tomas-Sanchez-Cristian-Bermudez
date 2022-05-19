@@ -10,7 +10,7 @@ const notFoundError = (req, res) => {
 const generalError = (error, req, res, next) => {
   debug(chalk.red(`Error: ${error.message}`));
   const statusCode = error.statusCode ?? 500;
-  const errorMessage = error.errorMessage ? error.errorMessage : "Severe Error";
+  const errorMessage = error.message ? error.message : "Server Error";
 
   res.status(statusCode).json({ message: errorMessage });
 };
