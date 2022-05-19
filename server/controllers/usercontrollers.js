@@ -25,9 +25,7 @@ const registrerUser = async (req, res, next) => {
       password: encryptedPassword,
     });
 
-    res
-      .status(201)
-      .json({ user: { username: newUser.username, id: newUser.id } });
+    res.status(201).json(newUser);
     debug(chalk.green("User added"));
   } catch (error) {
     error.statusCode = 400;
@@ -54,6 +52,7 @@ const userLogin = (req, res, next) => {
     const userData = {
       username: user.username,
       password: user.password,
+      id: user.id,
     };
 
     if (!matchingPassword) {
