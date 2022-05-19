@@ -37,10 +37,10 @@ const registrerUser = async (req, res, next) => {
   }
 };
 
-const userLogin = (req, res, next) => {
+const userLogin = async (req, res, next) => {
   const { username, password } = req.body;
 
-  const user = User.findOne({ username });
+  const user = await User.findOne({ username });
   if (!user) {
     const error = new Error("There is no user with this name...");
     error.statusCode = 403;
@@ -62,7 +62,7 @@ const userLogin = (req, res, next) => {
       next(error);
     } else {
       const token = jwt.sign(userData, process.env.JWT_SECRET);
-      res.json(token);
+      res.status(200).json(token);
     }
   }
 };
