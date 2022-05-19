@@ -1,4 +1,4 @@
-const { userLogin } = require("./userControllers");
+const { userLogin } = require("./usercontrollers");
 
 jest.mock("../../database/models/User", () => ({
   findOne: jest.fn().mockResolvedValue(true),
